@@ -15,7 +15,7 @@ Forked from [Floating IPS](https://github.com/Alcaro/Flips). Changes made thus f
 ### Build (Windows, Cygwin)
 
 1. Download and run the [Cygwin](https://www.cygwin.com/) installer.
-2. Select these packages:<br>`git`<br>`make`<br>`mingw64-x86_64-gcc-core`<br>`mingw64-x86_64-gcc-g++`<br>`mingw64-x86_64-headers`<br`>mingw64-x86_64-runtime`
+2. Select these packages:<br>`git`<br>`make`<br>`mingw64-x86_64-gcc-core`<br>`mingw64-x86_64-gcc-g++`<br>`mingw64-x86_64-headers`<br>`mingw64-x86_64-runtime`
 3. Download and install all.
 4. You should probably restart your system for good measure.
 5. Open the **Cygwin Terminal** and enter the following:<br>`git clone https://github.com/subvod/FlipsCygwin<br>`
