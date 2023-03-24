@@ -18,7 +18,7 @@ Forked from [Floating IPS](https://github.com/Alcaro/Flips). Changes made thus f
 2. Select these packages:<br>`git`<br>`make`<br>`mingw64-x86_64-gcc-core`<br>`mingw64-x86_64-gcc-g++`<br>`mingw64-x86_64-headers`<br>`mingw64-x86_64-runtime`
 3. Download and install all.
 4. You should probably restart your system for good measure.
-5. Open the **Cygwin Terminal** and enter the following:<br>`git clone https://github.com/subvod/FlipsCygwin<br>`
+5. Open the **Cygwin Terminal** and enter the following:<br>`git clone https://github.com/subvod/FlipsCygwin`
 6. To build:<br>32-bit:<br>&emsp;`i686-w64-mingw32-g++ *.c *.cpp -mwindows -lgdi32 -lcomdlg32 -lcomctl32 -luser32 -lkernel32 -lshell32 -ladvapi32 -fno-exceptions -fno-rtti -o flips.exe`<br>64-bit:<br>&emsp;`x86_64-w64-mingw32-g++ *.c *.cpp -mwindows -lgdi32 -lcomdlg32 -lcomctl32 -luser32 -lkernel32 -lshell32 -ladvapi32 -fno-exceptions -fno-rtti -o flips.exe`
 
 And, just in case I stumble across something else I need to add, use this to update:
