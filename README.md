@@ -1,39 +1,30 @@
-Floating IPS (or Flips) is a patcher for IPS and BPS files, aiming for a simple interface yet plenty of power under the hood.
+# FlipsCygwin
 
-Features:
-- Creates the smallest BPS patches of any known tool in existence, and is faster than any other comparable creator
-- Creates the smallest IPS patches of any known tool in existence, too (but only a little smaller, Lunar IPS is quite good)
-- Fully-featured GUIs under Windows and GTK+, including command line support; can also be a pure command line program
-- Can apply multiple patches to the same ROM, creating a huge pile of ROMs (GUI only)
-- Can remembers which ROMs you've used, and use them again if it thinks it's correct (BPS only, GUI only)
-- Can launch other programs after patching the ROMs; together with the above, this allows you to double click a BPS to launch an emulator (GUI only)
+*Flips with some pulls merged.*
 
-Floating IPS is in maintenance mode. Bug reports and pull requests will be processed, but feature requests are unlikely to be implemented. There will be no formal releases within any forseeable future; users should consider every commit a release.
+### Overview
 
-Third-party forks, or separate tools, covering usecases this version doesn't (this only acknowledges their existence, and is not an endorsement; I haven't used most of them):
-- [Floating IPS](https://github.com/Alcaro/Flips); the original Floating IPS, in case you're currently looking at a fork
-- [MultiPatch](https://projects.sappharad.com/tools/multipatch.html), OSX, applies BPS/IPS/UPS/PPF/Xdelta/bsdiff/Ninja2, creates BPS/IPS/XDelta/bsdiff
-- [QtFloatingIPS](https://github.com/covarianttensor/QtFloatingIPS), Flips port to OSX (may work on others too)
-- [Wh0ba Floating IPS](https://wh0ba.github.io/repo/), Flips port to iOS/Cydia
-- [RomPatcher.js](https://www.marcrobledo.com/RomPatcher.js/), JavaScript, applies APS/BPS/IPS/PPF/RUP/UPS/Xdelta, creates APS/BPS/IPS/RUP/UPS
-- There are many tools that offer a strict subset of Flips functionality (Lunar IPS, beat, etc). I'm not listing them here.
+Forked from [Floating IPS](https://github.com/Alcaro/Flips). Changes made thus far:
 
-Compilation - Linux:
-- `sudo apt-get install g++ build-essential`; for GUI support, also `sudo apt-get install libgtk-3-dev pkg-config`; adjust for your distro if necessary
-- `./make.sh` to build an optimized binary; for development, use `make CFLAGS=-g` (ignore make-maintainer.sh)
-- Alternatively, if you prefer binaries, `flatpak install com.github.Alcaro.Flips`
+- Merged [Pull 52](https://github.com/Alcaro/Flips/pull/52) for toggle override checkbox. Making a script for automation isn't worth the hassle when we already have the GUI.
+- Merged removal of **Line 14** mentioned in [Issue 32](https://github.com/Alcaro/Flips/issues/32#issuecomment-1036141144) to fix:<br>`multiple definition of '.weak.__cxa_pure_virtual._ZN4fileD2Ev'`
+- Added references from [Issue 26](https://github.com/Alcaro/Flips/issues/26#issuecomment-573674247) for context on building with [Cygwin](https://www.cygwin.com/).
 
-Compilation - OSX, other Unix, or anything else with a C++ compiler:
-- Install a C++ compiler
-- `clang++ *.c *.cpp -O3 -o flips` (with changes as appropriate)
-- For GTK GUI support, use some suitable variant of `clang++ *.c *.cpp -O3 -o flips -DFLIPS_GTK -lgtk3`
-- For better optimizations (profiling/etc), extract the appropriate commands from Makefile and make.sh
+# Install Instructions
 
-Compilation - Windows:
-- Install [mingw-w64](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-win32/seh/), or similar
-- `mingw32-make CFLAGS=-O3` (GUI is automatically enabled), or extract the appropriate optimization commands from make.sh
-- Alternatively, [here's a binary](https://www.smwcentral.net/?p=section&a=details&id=11474) (though it's quite outdated).
+### Build (Windows, Cygwin)
 
-Usage:
-- If GUI is enabled, just run the program. File pickers' window titles tell what they want; Enable automatic ROM picker and Run in Emulator can cause file pickers to appear and disappear depending on the chosen patch, making usage less predictable, so it's disabled by default.
-- For CLI use, see `./flips --help`. Available both with or without GUI support (though Windows CLI use from interactive prompts is slightly screwy, due to OS limitations).
+1. Download and run the [Cygwin](https://www.cygwin.com/) installer.
+2. Select these packages:<br>`git<br>make<br>mingw64-x86_64-gcc-core<br>mingw64-x86_64-gcc-g++<br>mingw64-x86_64-headers<br>mingw64-x86_64-runtime`
+3. Download and install all.
+4. You should probably restart your system for good measure.
+5. Open the **Cygwin Terminal** and enter the following:<br>`git clone https://github.com/subvod/FlipsCygwin<br>`
+6. To build:<br>32-bit:<br>&emsp;`i686-w64-mingw32-g++ *.c *.cpp -mwindows -lgdi32 -lcomdlg32 -lcomctl32 -luser32 -lkernel32 -lshell32 -ladvapi32 -fno-exceptions -fno-rtti -o flips.exe`<br>64-bit:<br>&emsp;`x86_64-w64-mingw32-g++ *.c *.cpp -mwindows -lgdi32 -lcomdlg32 -lcomctl32 -luser32 -lkernel32 -lshell32 -ladvapi32 -fno-exceptions -fno-rtti -o flips.exe`
+
+And, just in case I stumble across something else I need to add, use this to update:
+
+``
+
+### Usage
+
+- Same as the original Flips, but now with a fancy checksum mismatch override toggle checkbox. Also should compile from **Cygwin** with **mingw64** right out of the box after cloning. It does for me.
