@@ -14,7 +14,7 @@ void operator delete(void * p, size_t n) { free(p); }
 // removed extern
 //     https://github.com/Alcaro/Flips/issues/26#issuecomment-573674247
 //     https://github.com/Alcaro/Flips/issues/32#issuecomment-1036141144
-//extern "C" void __cxa_pure_virtual() { abort(); }
+// extern "C" void __cxa_pure_virtual() { abort(); }
 
 #if __GNUC__ && (__cpp_rtti || __cpp_exceptions)
 #warning "Consider building with -fno-exceptions -fno-rtti, to avoid dependencies on libgcc_s_sjlj-1.dll and libstdc++-6.dll."
