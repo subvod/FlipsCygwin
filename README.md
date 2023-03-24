@@ -23,7 +23,7 @@ Forked from [Floating IPS](https://github.com/Alcaro/Flips). Changes made thus f
 
 And, just in case I stumble across something else I need to add, use this to update:
 
-``
+`git fetch`
 
 ### Usage
 
