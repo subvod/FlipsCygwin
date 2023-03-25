@@ -19,17 +19,20 @@ Forked from [Floating IPS](https://github.com/Alcaro/Flips). Changes made thus f
 1. Download and install a binary release of [CodeBlocks](http://www.codeblocks.org/downloads/binaries/#imagesoswindows48pnglogo-microsoft-windows), usually you'll want the one that comes with MinGW unless you know what you're doing. How to set up directories elsewhere, and what not. If that's the case, you ought to know what a nightly is, as well.
 2. Download the [release version of this fork](https://github.com/subvod/FlipsCygwin/releases).
 3. Start up CodeBlocks and click `File < New < Project...`
-4. Select `Win32 GUI Project` and click `Go`.
+4. Select `Win32 GUI Project` and click `Go`
 5. Choose `Frame Based`
 6. Name the project whatever. Let's say `flips` for now.
 7. Choose a folder you'll remember.
-8. Compiler should have already been auto-detected, so just click Finish`
+8. Compiler should have already been auto-detected, so just click `Finish`
 9. Right click `main.cpp` then `Remove file from project`
 10. Navigate to the project's folder and delete `main.cpp`
 11. Open this fork's release archive and unzip all files in the `src` folder into your project's folder.
 12. Back in CodeBlocks, right click your project's name then `Add files...`
 13. Select all files in the directory and click `Open`
-14. Press `F9`
+14. Click `Project < Build options...`
+15. At the bottom of the `General` section, tick the checkmark of whatever architecture you want (32 or 64 bit)
+16. Click the `Other compiler options` tab and paste: `-fno-exceptions -fno-rtti`
+17. Press `F9`
 
 ### Windows (Cygwin)
 
