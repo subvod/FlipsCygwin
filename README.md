@@ -48,14 +48,9 @@ mingw64-x86_64-runtime
 ```
 4. Download and install all.
 5. You should probably restart your system for good measure.
-6. Open the **Cygwin Terminal** and enter the following:
+6. Open the **Cygwin Terminal** and enter the following to build 64-bit:
 ```
 git clone https://github.com/subvod/FlipsCygwin
-mkdir obj
-windres flips.rc obj/rc.o
-```
-7. To build 64-bit:
-```
 windres.exe -J rc -O coff -i *.rc -o resources.o
 x86_64-w64-mingw32-g++ -Wall -m64 -O2 -m64 -fno-exceptions -fno-rtti -c *.cpp *.c
 x86_64-w64-mingw32-g++ -o flips.exe *.o -m64 -s -m64 -lgdi32 -luser32 -lkernel32 -lcomctl32 -mwindows
