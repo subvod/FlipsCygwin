@@ -12,7 +12,26 @@ Forked from [Floating IPS](https://github.com/Alcaro/Flips). Changes made thus f
 
 # Install Instructions
 
-### Build (Windows, Cygwin)
+### Windows (CodeBlocks)
+
+*No, I don't use VS Code. You're on your own with that.*
+
+1. Download and install a binary release of [CodeBlocks](http://www.codeblocks.org/downloads/binaries/#imagesoswindows48pnglogo-microsoft-windows), usually you'll want the one that comes with MinGW unless you know what you're doing. How to set up directories elsewhere, and what not. If that's the case, you ought to know what a nightly is, as well.
+2. Download the [release version of this fork](https://github.com/subvod/FlipsCygwin/releases).
+3. Start up CodeBlocks and click `File < New < Project...`
+4. Select `Win32 GUI Project` and click `Go`.
+5. Choose `Frame Based`
+6. Name the project whatever. Let's say `flips` for now.
+7. Choose a folder you'll remember.
+8. Compiler should have already been auto-detected, so just click Finish`
+9. Right click `main.cpp` then `Remove file from project`
+10. Navigate to the project's folder and delete `main.cpp`
+11. Open this fork's release archive and unzip all files in the `src` folder into your project's folder.
+12. Back in CodeBlocks, right click your project's name then `Add files...`
+13. Select all files in the directory and click `Open`
+14. Press `F9`
+
+### Windows (Cygwin)
 
 1. Download and run the [Cygwin](https://www.cygwin.com/) installer.
 2. Let's assume you want to build for 64-bit. Select these packages:
