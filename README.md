@@ -54,7 +54,15 @@ git clone https://github.com/subvod/FlipsCygwin
 mkdir obj
 windres flips.rc obj/rc.o
 ```
-7. To build:<br>&emsp;32-bit:<br>&emsp;&emsp;`i686-w64-mingw32-g++ *.c *.cpp obj/rc.o -mwindows -lgdi32 -lcomdlg32 -lcomctl32 -luser32 -lkernel32 -lshell32 -ladvapi32 -fno-exceptions -fno-rtti -o flips.exe`<br>&emsp;64-bit:<br>&emsp;&emsp;`x86_64-w64-mingw32-g++ *.c *.cpp obj/rc.o -mwindows -lgdi32 -lcomdlg32 -lcomctl32 -luser32 -lkernel32 -lshell32 -ladvapi32 -fno-exceptions -fno-rtti -o flips.exe`
+7. To build 64-bit:
+```
+windres.exe -J rc -O coff -i *.rc -o resources.o
+x86_64-w64-mingw32-g++ -Wall -m64 -O2 -m64 -fno-exceptions -fno-rtti -c *.cpp *.c
+x86_64-w64-mingw32-g++ -o flips.exe *.o -m64 -s -m64 -lgdi32 -luser32 -lkernel32 -lcomctl32 -mwindows
+rm *.o
+```
+
+&emsp;**NOTE:** To build for 32-bit, replace `x86_64-w64-mingw32-g++` with `i686-w64-mingw32-g++`
 
 ### Usage
 
