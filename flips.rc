@@ -6,6 +6,8 @@
 1 24 "flips.Manifest"
 
 VS_VERSION_INFO VERSIONINFO
+FILEVERSION 2023,03,24,0
+PRODUCTVERSION 1,3,1,0
 FILEFLAGSMASK  	VS_FFI_FILEFLAGSMASK
 FILEFLAGS      	0
 //VS_FF_DEBUG VS_FF_PATCHED VS_FF_PRERELEASE VS_FF_PRIVATEBUILD VS_FF_SPECIALBUILD  VS_FFI_FILEFLAGSMASK
@@ -13,16 +15,17 @@ FILEOS         	VOS__WINDOWS32
 FILETYPE       	VFT_APP
 FILESUBTYPE    	VFT2_UNKNOWN
 BEGIN
-    BLOCK "StringFileInfo"
-    BEGIN
-        BLOCK "040904E4"
-        BEGIN
-            VALUE "CompanyName",      "Alcaro"
-            VALUE "FileDescription",  "Flips Patch Utility"
-            VALUE "InternalName",     "Floating IPS"
-            VALUE "LegalCopyright",   "\xA9 2013-2021 Alcaro"
-            VALUE "OriginalFilename", "flips.exe"
-            VALUE "ProductName",      "Floating IPS"
-        END
-    END
+    BLOCK "StringFileInfo" {
+        BLOCK "040904E4" {
+            VALUE "FileDescription",  "IPS and BPS patcher.\nFancy build with dangerous features.\0"
+            VALUE "InternalName",     "flips\0"
+            VALUE "LegalCopyright",   "Copyright \xA9 2013-2023 Alcaro\0"
+            VALUE "OriginalFilename", "flips.exe\0"
+            VALUE "ProductName",      "Floating IPS\0"
+            VALUE "ProductVersion",   "1.3.1.0\0"
+        } // BLOCK "040904E4"
+    } // BLOCK "StringFileInfo"
+    BLOCK "VarFileInfo" {
+        VALUE "Translation", 0x409, 1252 // 1252 = 0x04E4
+    } // BLOCK "VarFileInfo"
 END
