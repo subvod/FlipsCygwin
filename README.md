@@ -15,17 +15,23 @@ Forked from [Floating IPS](https://github.com/Alcaro/Flips). Changes made thus f
 ### Build (Windows, Cygwin)
 
 1. Download and run the [Cygwin](https://www.cygwin.com/) installer.
-2. Select these packages:<br>`git`<br>`make`<br>`mingw64-x86_64-gcc-core`<br>`mingw64-x86_64-gcc-g++`<br>`mingw64-x86_64-headers`<br>`mingw64-x86_64-runtime`
-3. Download and install all.
-4. You should probably restart your system for good measure.
-5. Open the **Cygwin Terminal** and enter the following:
-
+2. Let's assume you want to build for 64-bit. Select these packages:
+```
+git
+make
+mingw64-x86_64-gcc-core
+mingw64-x86_64-gcc-g++
+mingw64-x86_64-headers
+mingw64-x86_64-runtime
+```
+4. Download and install all.
+5. You should probably restart your system for good measure.
+6. Open the **Cygwin Terminal** and enter the following:
 ```
 git clone https://github.com/subvod/FlipsCygwin
 mkdir obj
 windres flips.rc obj/rc.o
 ```
-
 7. To build:<br>&emsp;32-bit:<br>&emsp;&emsp;`i686-w64-mingw32-g++ *.c *.cpp obj/rc.o -mwindows -lgdi32 -lcomdlg32 -lcomctl32 -luser32 -lkernel32 -lshell32 -ladvapi32 -fno-exceptions -fno-rtti -o flips.exe`<br>&emsp;64-bit:<br>&emsp;&emsp;`x86_64-w64-mingw32-g++ *.c *.cpp obj/rc.o -mwindows -lgdi32 -lcomdlg32 -lcomctl32 -luser32 -lkernel32 -lshell32 -ladvapi32 -fno-exceptions -fno-rtti -o flips.exe`
 
 ### Usage
